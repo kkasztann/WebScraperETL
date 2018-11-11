@@ -36,4 +36,4 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 Include a section for credits in order to highlight and link to the authors of your project.
 
 ## License
-Finally, include a section for the license of your project. For more information on choosing a license, check out GitHub’s [licensing guide](https://choosealicense.com/)!
+Finally, include a section for the license of your project. For more information on choosing a license, check out GitHub’s [licensing guide](https://choosealicense.com/)
