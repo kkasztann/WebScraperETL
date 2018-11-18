@@ -1,4 +1,4 @@
-{%  load static %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, , shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Mouse+Memoirs" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel="stylesheet" href="{%  static 'css/style.css' %}">
@@ -15,9 +17,30 @@
 </head>
 
 <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark transparency mb-5">
+        <a class="navbar-brand" href="{% url 'home' %}"><img src="{%  static 'images/logo.svg' %}"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mx-0">
+                <li class="nav-item active">
+                    <a class="nav-link mr-3" href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link md-3" href="{% url 'page2' %}"><i class="fas fa-exchange-alt"></i> Run ETL</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mr-3" href="{% url 'page2' %}"><i class="fas fa-box-open"></i> Products</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="container transparency">
-        <a href="{% url 'home' %}">Home</a>
-        <a href="{% url 'page2' %}">Page2</a>
         {% block content%}
         {% endblock %}
     </div>

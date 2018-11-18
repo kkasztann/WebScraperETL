@@ -5,11 +5,20 @@ body {
     color: #BADC58;
 }
 
+nav {
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 2.5em;
+}
+
 h1 {
     font-family: 'Mouse Memoirs', sans-serif;
-    color:#6AB04C;
+    color: #6AB04C;
 }
 
 .transparency {
     background: rgba(0, 0, 0, 0.5);
-  }
+}
+
+i {
+    font-size: 0.9em;
+}
