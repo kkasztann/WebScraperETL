@@ -31,10 +31,10 @@
                     <a class="nav-link mr-3" href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link md-3" href="{% url 'page2' %}"><i class="fas fa-exchange-alt"></i> Run ETL</a>
+                    <a class="nav-link md-3" href="{% url 'run-etl' %}"><i class="fas fa-exchange-alt"></i> Run ETL</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mr-3" href="{% url 'page2' %}"><i class="fas fa-box-open"></i> Products</a>
+                    <a class="nav-link mr-3" href="{% url 'products' %}"><i class="fas fa-box-open"></i> Products</a>
                 </li>
             </ul>
         </div>
@@ -44,6 +44,28 @@
         {% block content%}
         {% endblock %}
     </div>
+
+    <footer class="transparency">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>WebScraperETL <i class="far fa-copyright"></i> 2018</p>
+                    <p>Designed by</p>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-4">
+                    <p><a href="https://github.com/adam96op" target="_blank">Adam Pacholak <i class="fab fa-github"></i></a></p>
+                </div>
+                <div class="col-4">
+                    <p><a href="https://github.com/kkasztann" target="_blank">Daniel Słowik <i class="fab fa-github"></i></a></p>
+                </div>
+                <div class="col-4">
+                    <p><a href="https://github.com/SiRazoR" target="_blank">Tomasz Reczyński <i class="fab fa-github"></i></a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

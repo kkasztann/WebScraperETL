@@ -1,13 +1,42 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
     background-color: #00092e;
     background-image: url("../images/background.png");
     font-family: 'Josefin Sans', sans-serif;
     color: #BADC58;
+    margin-bottom: 150px;
 }
 
 nav {
     background: rgba(0, 0, 0, 0.5);
     font-size: 2.5em;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    color: white;
+    padding-top: 1em;
+}
+
+footer p {
+    text-align: center;
+    margin-bottom: 0.1em;
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    color: #6AB04C;
+    text-decoration: none;
 }
 
 h1 {
