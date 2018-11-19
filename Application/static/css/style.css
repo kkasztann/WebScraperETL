@@ -8,7 +8,7 @@ body {
     background-image: url("../images/background.png");
     font-family: 'Josefin Sans', sans-serif;
     color: #BADC58;
-    margin-bottom: 150px;
+    margin-bottom: 270px;
 }
 
 nav {
@@ -20,7 +20,7 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 120px;
+    height: 220px;
     color: white;
     padding-top: 1em;
 }
