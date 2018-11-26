@@ -4,5 +4,15 @@
 
 {% block content %}
     <h1>Opinions</h1>  
-
+    {% if allOpinions %}
+    <table class="table">
+        {% for opinion in allOpinions %}
+        <tr>
+           <td>{{ opinion.username }}</td> 
+           <td>{{ opinion.productRating }}</td> 
+           <td>{{ opinion.productReview }}</td> 
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}  
 {% endblock %}
