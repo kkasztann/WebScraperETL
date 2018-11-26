@@ -7,3 +7,9 @@ class Opinion(models.Model):
 
     def __str__(self):
         return self.username
+
+class ProductID(models.Model):
+    productID = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.productID

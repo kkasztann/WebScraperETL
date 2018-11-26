@@ -4,4 +4,11 @@
 
 {% block content %}
     <h1>PAGE2!</h1>
+    <form class="form-inline my-2 my-lg-0" method="POST">
+        {% csrf_token %}
+        <input class="form-control mr-sm-2" type="text" placeholder="Type product ID" name="productID">
+        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Run ETL</button>
+    </form>
+
+
 {% endblock %}
