@@ -3,6 +3,7 @@ from .models import Opinion
 from .forms import ProductForm
 from .opinionETL import opinionRunETL, opinionRunE, opinionRunT, opinionRunL
 from .productETL import productRunETL, productRunE, productRunT, productRunL
+from django.contrib import messages
 
 #variables for temporary data store. 
 #they are used to display results on the screen
@@ -21,9 +22,14 @@ def page2(request):
         if form.is_valid():
             productID = form.cleaned_data['productID']#id from input
             print('ProductID: ', productID)
-            opinionRunETL(productID)
-            productRunETL(productID)
-            return render(request, 'load.html', {})
+            try:
+                opinionRunETL(productID)
+                productRunETL(productID)
+                return render(request, 'load.html', {})
+            except:
+                    print("ProductID invalid")
+                    messages.error(request, ('ProductID is not valid. Pleace type it correctly!'))
+                    return render(request, 'page2.html', {})
     else:
         return render(request, 'page2.html', {})
 
@@ -35,10 +41,14 @@ def extract(request):
             productID = form.cleaned_data['productID']
             print('ProductID: ', productID)
             global extractedOpinionData, extractedProductData
-            extractedOpinionData = opinionRunE(productID)
-            extractedProductData = productRunE(productID)
-
-            return render(request, 'extract.html', {'extractedOpinionData': extractedOpinionData,'extractedProductData': extractedProductData})
+            try:
+                extractedOpinionData = opinionRunE(productID)
+                extractedProductData = productRunE(productID)
+                return render(request, 'extract.html', {'extractedOpinionData': extractedOpinionData,'extractedProductData': extractedProductData})
+            except:
+                    print("ProductID invalid")
+                    messages.error(request, ('ProductID is not valid. Pleace type it correctly!'))
+                    return render(request, 'page2.html', {})
     else:  
         return render(request, 'page2.html', {})  
 
@@ -60,7 +70,7 @@ def load(request):
         return render(request, 'load.html', {})  
     else: 
         return render(request, 'page2.html', {})  
-        
+
 #opinions page render
 def opinions(request):
     allOpinions = Opinion.objects.all

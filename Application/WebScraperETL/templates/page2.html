@@ -4,6 +4,16 @@
 
 {% block content %}
     <h1>PAGE2!</h1>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-danger alert-dismissable" role="alert">
+                <button class="close" data-dismiss="alert"> x </button>
+               {{ message }} 
+            </div>
+        {% endfor %}
+    {% endif %}
+
     <form class="form-inline my-2 my-lg-0" method="POST">
         {% csrf_token %}
         <input class="form-control mr-sm-2" type="text" placeholder="Type product ID" name="productID">

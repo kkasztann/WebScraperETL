@@ -26,7 +26,7 @@ def opinionRunL(transformedData):
 
 
 #---------------------CORE---------------------
-#Ceneo can show only 10 opinions per site, this function returl list containing all url's
+#Ceneo can show only 10 opinions per site, this function return list containing all url's
 def generateOpinionLinkList(prodID):
     baseLink = 'https://www.ceneo.pl/' + prodID
     htmlToParse = requests.get(baseLink).text

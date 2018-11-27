@@ -22,11 +22,11 @@ def productRunT(extractedData):
 
 #inject data into the database
 def productRunL(transformedData):
-    return loadProduct(transformedData)   
+    loadProduct(transformedData)   
 
 
 #---------------------CORE---------------------
-#return array with 3 fields containing important data
+#return array with 2 fields containing important data
 def extractProduct(productID):
     print('Extracting Product')
     baseLink = 'https://www.ceneo.pl/' + productID + '#tab=spec'
