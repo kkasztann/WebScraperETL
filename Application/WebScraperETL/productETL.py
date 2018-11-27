@@ -11,7 +11,9 @@ def productRunETL(productID):
     loadProduct(transformProduct(extractProduct(productID)))
 
 #return string with pure extracted opinions html
-def productRunE(productID):
+def productRunE(prodID):
+    global productID
+    productID = prodID
     return extractProduct(productID)  
 
 #return transformed list of arrays
@@ -32,13 +34,12 @@ def extractProduct(productID):
     soup = BeautifulSoup(htmlToParse, 'html.parser')  
     productName = soup.find('h1', attrs={'class':'product-name'}).text
     productData = soup.findAll('div', attrs={'class':'specs-group'})
-    return ((productName,productData,productID))
+    return ((productName,productData))
 
 def transformProduct(scrapedProductHTML):
     print('Transforming Product')
     productName = scrapedProductHTML[0]
     productData = scrapedProductHTML[1]
-    productID = scrapedProductHTML[2]
     productParameters = []  
 
     for data in productData:  
