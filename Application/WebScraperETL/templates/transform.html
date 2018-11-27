@@ -3,14 +3,27 @@
 {% block title %}WebScraperETL | Opinions {% endblock%}
 
 {% block content %}
-    <h1>Transformed data</h1>
-    {% if transformedData %}
+
+    <h1>Transformed product data</h1>
+    {% if transformedProductData %}
     <table class="table">
-        {% for data in transformedData %}
+        {% for data in transformedProductData %}
         <tr>
-           <td>{{ data.0 }}</td> 
+        <td>{{ data.2 }}</td> 
+        <td>{{ data.3 }}</td> 
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}  
+
+    <h1>Transformed opinions</h1>
+    {% if transformedOpinionData %}
+    <table class="table">
+        {% for data in transformedOpinionData %}
+        <tr>
            <td>{{ data.1 }}</td> 
            <td>{{ data.2 }}</td> 
+           <td>{{ data.3 }}</td> 
         </tr>
         {% endfor %}
     </table>
