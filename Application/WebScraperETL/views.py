@@ -18,7 +18,6 @@ def page2(request):
             runETL(productID)
             return render(request, 'load.html', {})
     else:
-        #should redirect to invalid data html 
         return render(request, 'page2.html', {})
 
 def extract(request):
@@ -30,27 +29,22 @@ def extract(request):
             global extractedData
             extractedData = runE(productID)
             return render(request, 'extract.html', {'extractedData' : extractedData})
-    else:
-        #should redirect to invalid data html    
+    else:  
         return render(request, 'page2.html', {})  
 
 def transform(request):
     if request.method == 'POST':
-        #if not null   
         global transformedData 
         transformedData = runT(extractedData)
         return render(request, 'transform.html', {'transformedData' : transformedData})  
-    else:
-        #should redirect to invalid data html    
+    else: 
         return render(request, 'page2.html', {}) 
 
 def load(request):
     if request.method == 'POST':
-        #if not null   
         runL(transformedData)
         return render(request, 'load.html', {})  
-    else:
-        #should redirect to invalid data html    
+    else: 
         return render(request, 'page2.html', {})  
 
 def opinions(request):
