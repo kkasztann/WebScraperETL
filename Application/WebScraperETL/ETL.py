@@ -3,26 +3,25 @@ from .models import Opinion
 from bs4 import BeautifulSoup  
 import re
 
-#Ceneo can show only 10 opinions per site, this list store all url's
-listOfOpinionLinks = []
-#pure html of scraped opinions
-scrapedHTML = ''
-#transformed html to opinion objects list
-opinions = []
-
 def runETL(productID):
     print ("Starting ETL")
-    generateOpinionList(productID)
-    extract()
-    transform()
-    load()
+    load(transform(extract(generateOpinionLinkList(productID))))
 
+def runE(productID):
+    return extract(generateOpinionLinkList(productID))   
 
-def generateOpinionList(prodID):
+def runT(extractedData):
+    return transform(extractedData) 
+
+def runL(transformedData):
+    return load(transformedData)   
+
+def generateOpinionLinkList(prodID):
     baseLink = 'https://www.ceneo.pl/' + prodID
     htmlToParse = requests.get(baseLink).text
     soup = BeautifulSoup(htmlToParse, 'html.parser')  
     opinionsTag = soup.find('span', attrs={'itemprop':'reviewCount'})
+    listOfOpinionLinks = []
 
     if not opinionsTag:
         print("List is empty, there are no opinions")
@@ -36,8 +35,10 @@ def generateOpinionList(prodID):
                 listOfOpinionLinks.append((baseLink + '#tab=reviews'))
             else:
                 listOfOpinionLinks.append((baseLink + '/opinie-' + str(iterate+1)))
+    #Ceneo can show only 10 opinions per site, this list store all url's
+    return listOfOpinionLinks            
 
-def extract():
+def extract(listOfOpinionLinks):
     print('Extracting data')
     htmlToParse = ''
     for link in listOfOpinionLinks:
@@ -45,13 +46,15 @@ def extract():
         htmlToParse += requests.get(link).text
 
     soup = BeautifulSoup(htmlToParse, 'html.parser')  
-    global scrapedHTML
     scrapedHTML = soup.find_all('li', attrs={'class':'review-box js_product-review'})
 
     print('Number of results scrapped: ' , len(scrapedHTML))
+    #pure html of scraped opinions
+    return scrapedHTML
 
-def transform():
+def transform(scrapedHTML):
     print('Transforming data')
+    opinions = []
 
     for result in scrapedHTML:  
         username = result.find('div', attrs={'class':'reviewer-name-line'}).text.lstrip()
@@ -62,8 +65,10 @@ def transform():
         print('Review: ', productReview)
         opinions.append((username, productRating, productReview))
         print('----------------------------------------------------------------')
+    #transformed html to opinions list
+    return opinions
 
-def load():
+def load(opinions):
     print('Loading data')
     for opinion in opinions:  
         print(opinion[0], ' loaded')

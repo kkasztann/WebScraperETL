@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+
+{% block title %}WebScraperETL | Opinions {% endblock%}
+
+{% block content %}
+    <h1>Transformed data</h1>
+    {% if transformedData %}
+    <table class="table">
+        {% for data in transformedData %}
+        <tr>
+           <td>{{ data.0 }}</td> 
+           <td>{{ data.1 }}</td> 
+           <td>{{ data.2 }}</td> 
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}  
+    <form action="load" method="POST">
+            {% csrf_token %}
+            <a href="{% url 'run-l' %}">
+               <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Run L</button>
+            </a>
+        </form> 
+{% endblock %}
