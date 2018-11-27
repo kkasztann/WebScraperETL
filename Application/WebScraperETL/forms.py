@@ -6,8 +6,3 @@ class ProductForm(forms.ModelForm):
     class Meta:
         model = ProductID
         fields = ["productID"]
-
-class OpinionForm(forms.ModelForm):
-    class Meta:
-        model = Opinion
-        fields = ["username", "productRating", "productReview"]
