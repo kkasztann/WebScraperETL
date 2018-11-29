@@ -2,7 +2,7 @@
 
 # PYTHON
 __pycache__
-
+db.sqlite3
 
 # VIRTUALENV Settings
 Include
@@ -20,3 +20,4 @@ tcl
 # System Files
 .DS_Store
 Thumbs.db
+
