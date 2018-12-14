@@ -3,20 +3,28 @@
 {% block title %}WebScraperETL | Opinions {% endblock%}
 
 {% block content %}
-    <h1>Extracted product html</h1>
-    <textarea name="message" style="width:100%; height:200px;">
+<div class="extract">
+    <div>
+        <h1>Extracted product html</h1>
+        <textarea name="message" style="width:100%; height:200px;">
         {{ extractedProductData }}
-    </textarea> 
-    <h1>Extracted opinions html</h1>
-    <textarea name="message" style="width:100%; height:200px;">
+    </textarea>
+        <p>Dane statystyczne: {{ sizeProductParameters }} div</p>
+    </div>
+    <div>
+        <h1>Extracted opinions html</h1>
+        <textarea name="message" style="width:100%; height:200px;">
         {{ extractedOpinionData }}
-    </textarea>  
-    
+    </textarea>
+        <p>Dane statystyczne: {{ sizeOpinion }} li</p>
+    </div>
     <form action="transform" method="POST">
         {% csrf_token %}
         <a href="{% url 'run-t' %}">
-           <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Run T</button>
+            <button class="btn btn-outline-secondary" type="submit">Run T</button>
         </a>
     </form>
-    
+
+
+</div>
 {% endblock %}

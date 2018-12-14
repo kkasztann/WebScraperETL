@@ -44,7 +44,9 @@ def extract(request):
             try:
                 extractedOpinionData = opinionRunE(productID)
                 extractedProductData = productRunE(productID)
-                return render(request, 'extract.html', {'extractedOpinionData': extractedOpinionData,'extractedProductData': extractedProductData})
+                sizeProductParameters = len((extractedProductData)[1][0])
+                sizeOpinion = len(extractedOpinionData)
+                return render(request, 'extract.html', {'sizeProductParameters': sizeProductParameters, 'sizeOpinion': sizeOpinion,'extractedOpinionData': extractedOpinionData,'extractedProductData': extractedProductData})
             except:
                     print("ProductID invalid")
                     messages.error(request, ('ProductID is not valid. Pleace type it correctly!'))

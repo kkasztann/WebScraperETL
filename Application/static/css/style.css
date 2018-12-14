@@ -1,3 +1,5 @@
+/* ----- Common Code ----- */
+
 html {
     position: relative;
     min-height: 100%;
@@ -11,11 +13,34 @@ body {
     margin-bottom: 270px;
 }
 
+h1 {
+    font-family: 'Mouse Memoirs', sans-serif;
+    color: #6AB04C;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+form {
+    margin-left: 20px;
+}
+
+.transparency {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+i {
+    font-size: 0.9em;
+}
+
+
+/* ----- Nav ----- */
 nav {
     background: rgba(0, 0, 0, 0.5);
     font-size: 2.5em;
 }
 
+
+/* ----- Footer ----- */
 footer {
     position: absolute;
     bottom: 0;
@@ -39,15 +64,55 @@ footer a:hover {
     text-decoration: none;
 }
 
-h1 {
-    font-family: 'Mouse Memoirs', sans-serif;
-    color: #6AB04C;
+/* ----- ETL Section ----- */
+.formETL {
+    margin: 0 auto 35px;
 }
 
-.transparency {
-    background: rgba(0, 0, 0, 0.5);
+
+/* ----- Load Section ----- */
+.load h1 {
+    padding: 50px;
 }
 
-i {
-    font-size: 0.9em;
+/* ----- Extract Section ----- */
+.extract {
+    padding-bottom: 20px;
+}
+
+.extract h1 {
+    margin-bottom: 10px;
+    padding-top: 20px;
+}
+
+.extract h1:nth-of-type(2) {
+    margin-top: 50px
+}
+
+.extract .btn {
+    display: block;
+    margin: 20px auto;
+    width: 100px;
+    height: auto;
+}
+
+/* ----- Transform Section ----- */
+.transform {
+    padding-bottom: 20px;
+}
+
+.transform h1 {
+    margin-bottom: 10px;
+    padding-top: 20px;
+}
+
+.transform h1:nth-of-type(2) {
+    margin-top: 50px
+}
+
+.transform .btn {
+    display: block;
+    margin: 20px auto;
+    width: 100px;
+    height: auto;
 }

@@ -3,31 +3,33 @@
 {% block title %}WebScraperETL | Page2 {% endblock%}
 
 {% block content %}
-    <h1>PAGE2!</h1>
+<h1>Przeprowadź proces ETL</h1>
 
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-danger alert-dismissable" role="alert">
-                <button class="close" data-dismiss="alert"> x </button>
-               {{ message }} 
-            </div>
-        {% endfor %}
-    {% endif %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-danger alert-dismissable" role="alert">
+    <button class="close" data-dismiss="alert"> x </button>
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+<div class="row">
+    <div class="col-md-10 formETL">
+        <form class="form-inline my-2 my-lg-0" method="POST">
+            {% csrf_token %}
+            <input class="form-control mr-sm-2" type="text" placeholder="Type product ID" name="productID">
+            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Run ETL</button>
+        </form>
 
-    <form class="form-inline my-2 my-lg-0" method="POST">
-        {% csrf_token %}
-        <input class="form-control mr-sm-2" type="text" placeholder="Type product ID" name="productID">
-        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Run ETL</button>
-    </form>
-    
-    <br>
+        <br>
 
-    <form class="form-inline my-2 my-lg-0" action="extract" method="POST">
+        <form class="form-inline my-2 my-lg-0" action="extract" method="POST">
             {% csrf_token %}
             <input class="form-control mr-sm-2" type="text" placeholder="Type product ID" name="productID">
             <a href="{% url 'run-e' %}">
-                    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Run E</button>
+                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Run E</button>
             </a>
-    </form>
- 
+        </form>
+    </div>
+</div>
 {% endblock %}
