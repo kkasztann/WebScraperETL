@@ -1,5 +1,6 @@
 import requests
 from .models import Product 
+from .models import ProductDetail
 from bs4 import BeautifulSoup  
 import re
 
@@ -53,7 +54,9 @@ def transformProduct(scrapedProductHTML):
 
 def loadProduct(productParameters):
     print('Loading Product data')
-    for parameter in productParameters:  
+    p = Product(productName=productParameters[0][0], productID=productParameters[0][1])
+    p.save()
+    for parameter in productParameters:
         print(parameter[0], parameter[1], parameter[2], parameter[3], 'loaded')
-        p = Product(productName=parameter[0], productID=parameter[1], parameter=parameter[2], value=parameter[3])
-        p.save()
+        pd = ProductDetail(parameter=parameter[2], value=parameter[3], product=p)
+        pd.save()
