@@ -9,4 +9,5 @@ urlpatterns = [
     path('run-etl/transform', views.transform, name='run-t'),
     path('run-etl/load', views.load, name='run-l'),
     path('opinions/', views.opinions, name='opinions'),
+    path('products/', views.products, name='products'),
 ]

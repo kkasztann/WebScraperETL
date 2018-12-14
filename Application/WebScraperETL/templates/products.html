@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+
+{% block title %}WebScraperETL | Products {% endblock%}
+
+{% block content %}
+<h1>All products from database</h1>
+{% if allProducts %}
+<div class="table-responsive">
+    <table class="table">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">NAZWA</th>
+                    <th scope="col">PARAMETRY PRODUKTU</th>
+                    <th scope="col">OPINIE</th>
+                    <th scope="col">USUŃ</th>
+                    <th scope="col">CSV</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in allProducts %}
+                <tr>
+                    <td>{{ product.productID }}</td>
+                    <td>{{ product.productName }}</td>
+                    <td><i class="fas fa-cogs"></i></td>
+                    <td><i class="fas fa-users"></i></td>
+                    <td><i class="far fa-trash-alt"></i></td>
+                    <td><i class="fas fa-file-csv"></i></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+{% endif %}
+{% endblock %}

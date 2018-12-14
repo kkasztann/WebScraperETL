@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Opinion
+from .models import Product
 from .forms import ProductForm
 from .opinionETL import opinionRunETL, opinionRunE, opinionRunT, opinionRunL
 from .productETL import productRunETL, productRunE, productRunT, productRunL
@@ -77,3 +78,8 @@ def load(request):
 def opinions(request):
     allOpinions = Opinion.objects.all
     return render(request, 'opinions.html', {'allOpinions' : allOpinions})
+
+#opinions page render
+def products(request):
+    allProducts = Product.objects.all
+    return render(request, 'products.html', {'allProducts' : allProducts})
