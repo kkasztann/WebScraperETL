@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Opinion
 from .models import Product
 from .forms import ProductForm
 from .opinionETL import opinionRunETL, opinionRunE, opinionRunT, opinionRunL
 from .productETL import productRunETL, productRunE, productRunT, productRunL
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 
 #variables for temporary data store. 
 #they are used to display results on the screen
@@ -83,3 +84,12 @@ def opinions(request):
 def products(request):
     allProducts = Product.objects.all
     return render(request, 'products.html', {'allProducts' : allProducts})
+
+
+
+def deleteProduct(request, product_id):
+    product = Product.objects.get(pk=product_id)
+    product.delete()
+    return redirect('products')
+
+

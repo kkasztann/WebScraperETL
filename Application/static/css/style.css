@@ -126,6 +126,12 @@ footer a:hover {
 }
 
 /* ----- Products Section ----- */
-.products i{
+.products i {
     font-size: 28px;
+}
+
+.trash:hover {
+    color: red;
+    -webkit-transform: scale(1.25);
+    transform: scale(1.25);
 }

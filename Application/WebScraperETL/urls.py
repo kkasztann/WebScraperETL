@@ -10,4 +10,5 @@ urlpatterns = [
     path('run-etl/load', views.load, name='run-l'),
     path('opinions/', views.opinions, name='opinions'),
     path('products/', views.products, name='products'),
+    path('delete/<product_id>', views.deleteProduct, name='delete-product'),
 ]
