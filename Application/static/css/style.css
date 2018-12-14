@@ -32,6 +32,14 @@ i {
     font-size: 0.9em;
 }
 
+th {
+    color: #6AB04C;
+}
+
+tr {
+    text-align: center;
+}
+
 
 /* ----- Nav ----- */
 nav {
@@ -115,4 +123,9 @@ footer a:hover {
     margin: 20px auto;
     width: 100px;
     height: auto;
+}
+
+/* ----- Products Section ----- */
+.products i{
+    font-size: 28px;
 }
