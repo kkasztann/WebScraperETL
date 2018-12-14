@@ -15,8 +15,8 @@ transformedProductData = []
 def home(request):
     return render(request, 'home.html', {})
 
-#page2 render + onclick runETL
-def page2(request):
+#run-etl render + onclick runETL
+def runETL(request):
     if request.method == 'POST':
         form = ProductForm(request.POST or None)
         if form.is_valid():
@@ -29,9 +29,9 @@ def page2(request):
             except:
                     print("ProductID invalid")
                     messages.error(request, ('ProductID is not valid. Pleace type it correctly!'))
-                    return render(request, 'page2.html', {})
+                    return render(request, 'run-etl.html', {})
     else:
-        return render(request, 'page2.html', {})
+        return render(request, 'run-etl.html', {})
 
 #extract page render + onclick runE
 def extract(request):
@@ -48,9 +48,9 @@ def extract(request):
             except:
                     print("ProductID invalid")
                     messages.error(request, ('ProductID is not valid. Pleace type it correctly!'))
-                    return render(request, 'page2.html', {})
+                    return render(request, 'run-etl.html', {})
     else:  
-        return render(request, 'page2.html', {})  
+        return render(request, 'run-etl.html', {})  
 
 #transform page render + onclick runT
 def transform(request):
@@ -60,7 +60,7 @@ def transform(request):
         transformedProductData = productRunT(extractedProductData)
         return render(request, 'transform.html', {'transformedOpinionData': transformedOpinionData, 'transformedProductData': transformedProductData})  
     else: 
-        return render(request, 'page2.html', {}) 
+        return render(request, 'run-etl.html', {}) 
 
 #load page render + onclick runL
 def load(request):
@@ -69,7 +69,7 @@ def load(request):
         productRunL(transformedProductData)
         return render(request, 'load.html', {})  
     else: 
-        return render(request, 'page2.html', {})  
+        return render(request, 'run-etl.html', {})  
 
 #opinions page render
 def opinions(request):
