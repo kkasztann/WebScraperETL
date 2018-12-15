@@ -40,6 +40,15 @@ tr {
     text-align: center;
 }
 
+a {
+    color: #BADC58;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #BADC58;
+}
+
 
 /* ----- Nav ----- */
 nav {
@@ -134,4 +143,13 @@ footer a:hover {
     color: red;
     -webkit-transform: scale(1.25);
     transform: scale(1.25);
+}
+.cogs:hover {
+    color: lightskyblue;
+    -webkit-transform: scale(1.25);
+    transform: scale(1.25);
+}
+
+.delete:hover {
+    color: red;
 }

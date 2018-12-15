@@ -13,7 +13,7 @@
                 <th scope="col">NAZWA</th>
                 <th scope="col">PARAMETRY PRODUKTU</th>
                 <th scope="col">OPINIE</th>
-                <th scope="col"><a href="{% url 'delete-products' %}">USUŃ</a></th>
+                <th scope="col"><a class="delete" href="{% url 'delete-products' %}">USUŃ</a></th>
                 <th scope="col">CSV</th>
             </tr>
         </thead>
@@ -22,7 +22,7 @@
             <tr>
                 <td>{{ product.productID }}</td>
                 <td>{{ product.productName }}</td>
-                <td><a href="{% url 'details-product' product.id %}"><i class="fas fa-cogs"></i></a></td>
+                <td><a href="{% url 'details-product' product.id %}"><i class="fas fa-cogs cogs"></i></a></td>
                 <td><i class="fas fa-users"></i></td>
                 <td><a href="{% url 'delete-product' product.id %}"><i class="far fa-trash-alt trash"></i></a></td>
                 <td><i class="fas fa-file-csv"></i></td>
