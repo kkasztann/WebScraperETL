@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+
+{% block title %}WebScraperETL | Product Details {% endblock%}
+
+{% block content %}
+<div>
+    <h1>Product Details</h1>
+    {% if productDetails %}
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">PARAMETR</th>
+                    <th scope="col">WARTOŚĆ</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pd in productDetails %}
+                <tr>
+                    <td>{{ pd.parameter }}</td>
+                    <td>{{ pd.value }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html'%}
+
+{% block title %}WebScraperETL | Products {% endblock%}
+
+{% block content %}
+<h1>All products from database</h1>
+{% if allProducts %}
+<div class="table-responsive products">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">NAZWA</th>
+                <th scope="col">PARAMETRY PRODUKTU</th>
+                <th scope="col">OPINIE</th>
+                <th scope="col"><a class="delete" href="{% url 'delete-products' %}">USUŃ</a></th>
+                <th scope="col">CSV</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in allProducts %}
+            <tr>
+                <td>{{ product.productID }}</td>
+                <td>{{ product.productName }}</td>
+                <td><a href="{% url 'details-product' product.id %}"><i class="fas fa-cogs cogs"></i></a></td>
+                <td><i class="fas fa-users"></i></td>
+                <td><a href="{% url 'delete-product' product.id %}"><i class="far fa-trash-alt trash"></i></a></td>
+                <td><i class="fas fa-file-csv"></i></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}
