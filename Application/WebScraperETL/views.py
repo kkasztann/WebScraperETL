@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Opinion
 from .models import Product
+from .models import ProductDetail
 from .forms import ProductForm
 from .opinionETL import opinionRunETL, opinionRunE, opinionRunT, opinionRunL
 from .productETL import productRunETL, productRunE, productRunT, productRunL
@@ -111,3 +112,7 @@ def deleteProducts(request):
     allProducts = Product.objects.all()
     allProducts.delete()
     return redirect('products')
+
+def productDetails(request, product_id):
+    productDetails = ProductDetail.objects.filter(product__pk=product_id)
+    return render(request, 'product-details.html', {'productDetails': productDetails})

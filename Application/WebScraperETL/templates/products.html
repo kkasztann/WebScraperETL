@@ -22,7 +22,7 @@
             <tr>
                 <td>{{ product.productID }}</td>
                 <td>{{ product.productName }}</td>
-                <td><i class="fas fa-cogs"></i></td>
+                <td><a href="{% url 'details-product' product.id %}"><i class="fas fa-cogs"></i></a></td>
                 <td><i class="fas fa-users"></i></td>
                 <td><a href="{% url 'delete-product' product.id %}"><i class="far fa-trash-alt trash"></i></a></td>
                 <td><i class="fas fa-file-csv"></i></td>
