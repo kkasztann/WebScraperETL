@@ -64,7 +64,7 @@ def transformOpinions(scrapedHTML):
     opinions = []
 
     for result in scrapedHTML:  
-        username = result.find('div', attrs={'class':'reviewer-name-line'}).text.lstrip()
+        username = result.find('div', attrs={'class':'reviewer-name-line'}).text.strip()
         productRating = result.find('span', attrs={'class':'review-score-count'}).text
         productReview = result.find('p', attrs={'class':'product-review-body'}).text
         opinions.append((productID, username, productRating, productReview))
