@@ -8,15 +8,15 @@
     <form action="load" method="POST">
             {% csrf_token %}
             <a href="{% url 'run-l' %}">
-                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Run L</button>
+                <button class="btn button button-primary" type="submit">Run L</button>
             </a>
     </form>
 
     <div>
-        <h1>Transformed product data</h1>
+        <h2>Transformed product data</h2>
         {% if transformedProductData %}
         <div class="table-responsive">
-            <p>Dane statystyczne: {{ sizeProductParameters }} parametrow</p>
+            <p>Dane statystyczne: {{ sizeProductParameters }} parametrów</p>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -37,7 +37,7 @@
     </div>
     {% endif %}
     <div>
-        <h1>Transformed opinions</h1>
+        <h2>Transformed opinions</h2>
         {% if transformedOpinionData %}
         <div class="table-responsive">
                 <p>Dane statystyczne: {{ sizeOpinion }} opinii</p>
@@ -46,7 +46,7 @@
                     <tr>
                         <th scope="col">AUTOR</th>
                         <th scope="col">OCENA</th>
-                        <th scope="col">TREŚĆ OPINI</th>
+                        <th scope="col">TREŚĆ OPINII</th>
                     </tr>
                 </thead>
                 <tbody>

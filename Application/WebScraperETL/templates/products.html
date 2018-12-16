@@ -3,36 +3,40 @@
 {% block title %}WebScraperETL | Products {% endblock%}
 
 {% block content %}
-<h1>All products from database</h1>
-{% if allProducts %}
-<div class="table-responsive products">
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">NAZWA
-                    <a href="{% url 'sort-name-ascending' %}"><i class="fas fa-sort-amount-up"></i></a>
-                    <a href="{% url 'sort-name-descending' %}"><i class="fas fa-sort-amount-down"></i></a>
-                </th>
-                <th scope="col">PARAMETRY PRODUKTU</th>
-                <th scope="col">OPINIE</th>
-                <th scope="col"><a class="delete" href="{% url 'delete-products' %}">USUŃ</a></th>
-                <th scope="col"><a class="csv" href="{% url 'csv-products' %}">CSV</a></th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for product in allProducts %}
-            <tr>
-                <td>{{ product.productID }}</td>
-                <td>{{ product.productName }}</td>
-                <td><a href="{% url 'details-product' product.id %}"><i class="fas fa-cogs cogs"></i></a></td>
-                <td><a href="{% url 'opinions' product.id %}"><i class="fas fa-users opinions"></i></a></td>
-                <td><a href="{% url 'delete-product' product.id %}"><i class="far fa-trash-alt trash"></i></a></td>
-                <td><a href="{% url 'csv-product' product.id %}"><i class="fas fa-file-csv csv-i"></i></a></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<div class="product">
+    <h1>All products from database</h1>
+    {% if allProducts %}
+    <div class="table-responsive products">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">
+                        <a href="{% url 'sort-name-ascending' %}"><i class="fas fa-sort-amount-up sort-i"></i></a>NAZWA<a href="{% url 'sort-name-descending' %}"><i class="fas fa-sort-amount-down sort-i"></i></a>
+                    </th>
+                    <th scope="col">PARAMETRY</th>
+                    <th scope="col">OPINIE</th>
+                    <th scope="col"><a class="delete" href="{% url 'delete-products' %}">USUŃ</a></th>
+                    <th scope="col"><a class="csv" href="{% url 'csv-products' %}">CSV</a></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in allProducts %}
+                <tr>
+                    <td>{{ product.productID }}</td>
+                    <td>{{ product.productName }}</td>
+                    <td><a href="{% url 'details-product' product.id %}"><i class="fas fa-cogs cogs"></i></a></td>
+                    <td><a href="{% url 'opinions' product.id %}"><i class="fas fa-users opinions"></i></a></td>
+                    <td><a href="{% url 'delete-product' product.id %}"><i class="far fa-trash-alt trash"></i></a></td>
+                    <td><a href="{% url 'csv-product' product.id %}"><i class="fas fa-file-csv csv-i"></i></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+    {% if not allProducts %}
+        <p class="emptyDB">Brak opinii dla danego produktu :(</p>
+    {% endif %}
 </div>
-{% endif %}
 {% endblock %}

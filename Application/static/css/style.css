@@ -33,7 +33,7 @@ i {
 }
 
 th {
-    color: #6AB04C;
+    color: rgb(146, 228, 13);
 }
 
 tr {
@@ -47,6 +47,41 @@ a {
 a:hover {
     text-decoration: none;
     color: #BADC58;
+}
+
+.button {
+    text-align: center;
+    width: 150px;
+    height: 44px;
+    color: #000;
+    border-radius: 22px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 44px;
+    text-transform: uppercase;
+    border: 1px solid #fff;
+    transition: all .3s ease-in;
+    -webkit-transition: all .3s ease-in;
+}
+
+.button-primary {
+    background: linear-gradient(120deg, #26de81 0%, #23d789 50%, #50ca8d 50%, #50ca8d 53%, #21f89b 53%);
+    background-size: 250%;
+    background-position: 0;
+    border-color: #21f89b;
+}
+
+.button-primary:hover {
+    background-position: 100%;
+    border-color: #32faa3;
+    cursor: pointer;
+}
+
+.emptyDB {
+    margin-top: -30px;
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 50px;
 }
 
 
@@ -82,10 +117,9 @@ footer a:hover {
 }
 
 /* ----- ETL Section ----- */
-.formETL {
-    margin: 0 auto 35px;
+.runETL {
+    padding: 30px 0;
 }
-
 
 /* ----- Load Section ----- */
 .load h1 {
@@ -102,14 +136,14 @@ footer a:hover {
     padding-top: 20px;
 }
 
-.extract h1:nth-of-type(2) {
+.extract h2 {
     margin-top: 50px
 }
 
 .extract .btn {
     display: block;
     margin: 20px auto;
-    width: 100px;
+    width: 150px;
     height: auto;
 }
 
@@ -123,18 +157,28 @@ footer a:hover {
     padding-top: 20px;
 }
 
-.transform h1:nth-of-type(2) {
+.transform h2 {
     margin-top: 50px
 }
 
 .transform .btn {
     display: block;
     margin: 20px auto;
-    width: 100px;
+    width: 150px;
     height: auto;
 }
 
 /* ----- Products Section ----- */
+
+.products {
+    font-size: 18px;
+}
+
+.product h1 {
+    padding-top: 30px;
+}
+
+
 .products i {
     font-size: 28px;
 }
@@ -144,10 +188,15 @@ footer a:hover {
     -webkit-transform: scale(1.25);
     transform: scale(1.25);
 }
+
 .cogs:hover {
     color: lightskyblue;
     -webkit-transform: scale(1.25);
     transform: scale(1.25);
+}
+
+.csv-i {
+    font-size: 28px;
 }
 
 .csv-i:hover {
@@ -170,6 +219,69 @@ footer a:hover {
     transform: scale(1.25);
 }
 
+.sort-i {
+    font-size: 20px !important;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+
+@media screen and (max-width: 1199px) {
+    .products {
+        font-size: 15px;
+    }
+
+    .products i {
+        font-size: 15px;
+    }
+
+    .sort-i {
+        font-size: 15px !important;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .products {
+        font-size: 10px;
+    }
+
+    .products i {
+        font-size: 10px;
+    }
+
+    .sort-i {
+        font-size: 10px !important;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .products {
+        font-size: 9px;
+    }
+
+    .products i {
+        font-size: 9px;
+    }
+
+    .sort-i {
+        font-size: 9px !important;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .products {
+        font-size: 8px;
+    }
+
+    .products i {
+        font-size: 8px;
+    }
+
+    .sort-i {
+        font-size: 8px !important;
+    }
+}
+
 
 /* ----- Home Section ----- */
 
@@ -179,10 +291,10 @@ footer a:hover {
     text-align: center;
     width: 30%;
     margin: auto;
-  }
+}
 
-  .home a {
-    background-color: #6AB04C; 
+.home a {
+    background-color: #6AB04C;
     border: none;
     border-radius: 8px;
     color: black;
@@ -193,10 +305,20 @@ footer a:hover {
     font-size: 24px;
     margin: 4px 2px;
     cursor: pointer;
-  }
+}
 
-  .home a:hover{
-      background-color:lightskyblue;
-      text-decoration: none;
-      color:black;
-  }
+.home a:hover {
+    background-color: lightskyblue;
+    text-decoration: none;
+    color: black;
+}
+
+/* ----- Opinion Section ----- */
+.opinionsSection h1 {
+    padding-top: 20px;
+}
+
+/* ----- Opinion Section ----- */
+.productDetails h1 {
+    padding-top: 20px;
+}
