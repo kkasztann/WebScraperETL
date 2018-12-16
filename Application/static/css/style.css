@@ -150,9 +150,20 @@ footer a:hover {
     transform: scale(1.25);
 }
 
+.csv-i:hover {
+    color: orange;
+    -webkit-transform: scale(1.25);
+    transform: scale(1.25);
+}
+
 .delete:hover {
     color: red;
 }
+
+.csv:hover {
+    color: orange;
+}
+
 
 /* ----- Home Section ----- */
 
@@ -183,6 +194,3 @@ footer a:hover {
       text-decoration: none;
       color:black;
   }
-
-
-  

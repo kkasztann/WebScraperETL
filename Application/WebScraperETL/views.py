@@ -7,6 +7,9 @@ from .opinionETL import opinionRunETL, opinionRunE, opinionRunT, opinionRunL
 from .productETL import productRunETL, productRunE, productRunT, productRunL
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.http import HttpResponse
+import csv
+
 
 # variables for temporary data store.
 # they are used to display results on the screen
@@ -115,3 +118,32 @@ def deleteProducts(request):
 def productDetails(request, product_id):
     productDetails = ProductDetail.objects.filter(product__pk=product_id)
     return render(request, 'product-details.html', {'productDetails': productDetails})
+
+def productCSV(request, product_id):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="product.csv"'
+
+    product = Product.objects.get(pk=product_id)
+    productDetails = ProductDetail.objects.filter(product__pk=product_id)
+
+    writer = csv.writer(response)
+    writer.writerow(['ID', 'NAME', 'PARAMETER', 'VALUE'])
+    for pd in productDetails:
+        writer.writerow([product.productID,"'"+product.productName+"'","'"+pd.parameter+"'","'"+pd.value+"'"])
+
+    return response
+
+def productsCSV(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="products.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['ID', 'NAME', 'PARAMETER', 'VALUE'])
+
+    allProducts = Product.objects.all()
+    for p in allProducts:
+        productDetails = ProductDetail.objects.filter(product__pk=p.id)
+        for pd in productDetails:
+            writer.writerow([p.productID,"'"+p.productName+"'","'"+pd.parameter+"'","'"+pd.value+"'"])
+
+    return response
