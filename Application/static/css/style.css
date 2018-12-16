@@ -164,6 +164,12 @@ footer a:hover {
     color: orange;
 }
 
+.opinions:hover {
+    color: purple;
+    -webkit-transform: scale(1.25);
+    transform: scale(1.25);
+}
+
 
 /* ----- Home Section ----- */
 
