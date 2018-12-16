@@ -2,7 +2,7 @@
 
 # PYTHON
 __pycache__
-db.sqlite3
+Application/db.sqlite3
 
 # VIRTUALENV Settings
 Include
