@@ -92,13 +92,6 @@ def load(request):
 # opinions page render
 
 
-def opinions(request):
-    allOpinions = Opinion.objects.all
-    return render(request, 'opinions.html', {'allOpinions': allOpinions})
-
-# opinions page render
-
-
 def products(request):
     allProducts = Product.objects.all
     return render(request, 'products.html', {'allProducts': allProducts})
@@ -146,4 +139,22 @@ def productsCSV(request):
         for pd in productDetails:
             writer.writerow([p.productID,"'"+p.productName+"'","'"+pd.parameter+"'","'"+pd.value+"'"])
 
+    return response
+
+
+def opinions(request, product_id):
+    allOpinions = Opinion.objects.filter(product__pk=product_id)
+    return render(request, 'opinions.html', {'allOpinions': allOpinions})
+
+
+def opinionsCSV(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="opinions.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['PRODUCT ID', 'USERNAME', 'PRODUCT RATING', 'PRODUCT REVIEW'])
+
+    allOpinions = Opinion.objects.all()
+    for o in allOpinions:
+            writer.writerow([o.productID,"'"+o.username+"'","'"+o.productRating+"'","'"+o.productReview+"'"])
     return response
