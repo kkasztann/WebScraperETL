@@ -133,3 +133,18 @@ def productCSV(request, product_id):
         writer.writerow([product.productID,"'"+product.productName+"'","'"+pd.parameter+"'","'"+pd.value+"'"])
 
     return response
+
+def productsCSV(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="products.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['ID', 'NAME', 'PARAMETER', 'VALUE'])
+
+    allProducts = Product.objects.all()
+    for p in allProducts:
+        productDetails = ProductDetail.objects.filter(product__pk=p.id)
+        for pd in productDetails:
+            writer.writerow([p.productID,"'"+p.productName+"'","'"+pd.parameter+"'","'"+pd.value+"'"])
+
+    return response
