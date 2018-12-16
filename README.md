@@ -10,22 +10,22 @@ Optionally, include a table of contents in order to allow other people to quickl
 What things you need to install before you can statrt installing the software itself.
 
 In order to start working with the project you need technology for scrapping, such as:
-1) Python (Django framework)
-   a) Beautiful Soup
-   b) pandas or csv (writer)
-2) Database added with django - sqlite3
-3) Bootstrap
+1. Python (Django framework)
+   1.1. Beautiful Soup
+   1.2. pandas or csv (writer)
+2. Database added with django - sqlite3
+3. Bootstrap
 
 ### Installation
 Installation is the next section in an effective README. Tell other users how to install your project locally. Optionally, include a gif to make the process even more clear for other people.
 
-1) Open Command Prompt 
-2) Type virtualenv *name of folder*
-3) Go to the folder "Scripts" and then type activate .
-4) type pip install django
-5) Go back to the main folder and type git init
-6) Type git remote add origin https://github.com/kkasztann/WebScraperETL.git
-7) Type git pull origin master
+1. Open Command Prompt 
+2. Type virtualenv *name of folder*
+3. Go to the folder "Scripts" and then type activate .
+4. type pip install django
+5. Go back to the main folder and type git init
+6. Type git remote add origin https://github.com/kkasztann/WebScraperETL.git
+7. Type git pull origin master
 
 Standard procedure to run server:
 1) ./Scripts/activate
