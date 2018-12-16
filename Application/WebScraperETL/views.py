@@ -150,3 +150,12 @@ def productsCSV(request):
             writer.writerow([p.productID,"'"+p.productName+"'","'"+pd.parameter+"'","'"+pd.value+"'"])
 
     return response
+
+def sortNameAscending(request):
+    allProducts = Product.objects.order_by('productName')
+    return render(request, 'products.html', {'allProducts': allProducts})    
+
+
+def sortNameDescending(request):
+    allProducts = Product.objects.order_by('-productName')
+    return render(request, 'products.html', {'allProducts': allProducts})  

@@ -10,7 +10,10 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">NAZWA</th>
+                <th scope="col">NAZWA
+                    <a href="{% url 'sort-name-ascending' %}"><i class="fas fa-sort-amount-up"></i></a>
+                    <a href="{% url 'sort-name-descending' %}"><i class="fas fa-sort-amount-down"></i></a>
+                </th>
                 <th scope="col">PARAMETRY PRODUKTU</th>
                 <th scope="col">OPINIE</th>
                 <th scope="col"><a class="delete" href="{% url 'delete-products' %}">USUŃ</a></th>
