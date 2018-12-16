@@ -25,5 +25,8 @@
         </table>
     </div>
     {% endif %}
+        {% if not productDetails %}
+        <p class="emptyDB">Brak szczegółowych informacji o produkcie :(</p>
+    {% endif %}
 </div>
 {% endblock %}
