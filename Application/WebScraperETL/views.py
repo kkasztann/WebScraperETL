@@ -3,6 +3,7 @@ from .models import Opinion
 from .models import Product
 from .models import ProductDetail
 from .forms import ProductForm
+from .opinionETL import getOpinionCount
 from .opinionETL import opinionRunETL, opinionRunE, opinionRunT, opinionRunL
 from .productETL import productRunETL, productRunE, productRunT, productRunL
 from django.contrib import messages
@@ -33,7 +34,7 @@ def runETL(request):
             try:
                 product = productRunETL(productID)
                 opinionRunETL(productID,product)
-                return render(request, 'load.html', {})
+                return render(request, 'load.html', {'sizeOpinion': getOpinionCount()})
             except:
                 print("ProductID invalid")
                 messages.error(
@@ -56,8 +57,7 @@ def extract(request):
                 extractedOpinionData = opinionRunE(productID)
                 extractedProductData = productRunE(productID)
                 sizeProductParameters = len((extractedProductData)[1][0])
-                sizeOpinion = len(extractedOpinionData)
-                return render(request, 'extract.html', {'sizeProductParameters': sizeProductParameters, 'sizeOpinion': sizeOpinion, 'extractedOpinionData': extractedOpinionData, 'extractedProductData': extractedProductData})
+                return render(request, 'extract.html', {'sizeProductParameters': sizeProductParameters, 'sizeOpinion': getOpinionCount(), 'extractedOpinionData': extractedOpinionData, 'extractedProductData': extractedProductData})
             except:
                 print("ProductID invalid")
                 messages.error(
@@ -75,8 +75,7 @@ def transform(request):
         transformedOpinionData = opinionRunT(extractedOpinionData)
         transformedProductData = productRunT(extractedProductData)
         sizeProductParameters = len(transformedProductData)
-        sizeOpinion = len(transformedOpinionData)
-        return render(request, 'transform.html', {'sizeProductParameters': sizeProductParameters, 'sizeOpinion': sizeOpinion,'transformedOpinionData': transformedOpinionData, 'transformedProductData': transformedProductData})
+        return render(request, 'transform.html', {'sizeProductParameters': sizeProductParameters, 'sizeOpinion': getOpinionCount(),'transformedOpinionData': transformedOpinionData, 'transformedProductData': transformedProductData})
     else:
         return render(request, 'run-etl.html', {})
 
@@ -87,8 +86,7 @@ def load(request):
     if request.method == 'POST':
         product = productRunL(transformedProductData)
         opinionRunL(transformedOpinionData, product)
-        sizeOpinion = len(transformedOpinionData)
-        return render(request, 'load.html', {'sizeOpinion': sizeOpinion})
+        return render(request, 'load.html', {'sizeOpinion': getOpinionCount()})
     else:
         return render(request, 'run-etl.html', {})
 
