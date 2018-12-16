@@ -5,8 +5,14 @@ import re
 
 #global product id variable
 productID = ''
+opinionCount = 0
+
+def getOpinionCount():
+    return opinionCount
 
 def opinionRunETL(prodID, product):
+    global productID
+    productID = prodID
     print ("Starting ETL")
     loadOpinions(transformOpinions(extractOpinions(generateOpinionLinkList(productID))), product)
 
@@ -68,6 +74,10 @@ def transformOpinions(scrapedHTML):
         productRating = result.find('span', attrs={'class':'review-score-count'}).text
         productReview = result.find('p', attrs={'class':'product-review-body'}).text
         opinions.append((productID, username, productRating, productReview))
+
+    global opinionCount
+    opinionCount = len(opinions)
+
     return opinions
 
 def loadOpinions(opinions, prod):
