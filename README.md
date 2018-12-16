@@ -10,11 +10,11 @@ Optionally, include a table of contents in order to allow other people to quickl
 What things you need to install before you can statrt installing the software itself.
 
 In order to start working with the project you need technology for scrapping, such as:
-* Python (Django framework)
-    a) Beautiful Soup
-    b) pandas or csv (writer)
-* Database added with django - sqlite3
-* Bootstrap
+1) Python (Django framework)
+   a) Beautiful Soup
+   b) pandas or csv (writer)
+2) Database added with django - sqlite3
+3) Bootstrap
 
 ### Installation
 Installation is the next section in an effective README. Tell other users how to install your project locally. Optionally, include a gif to make the process even more clear for other people.
