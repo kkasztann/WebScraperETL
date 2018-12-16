@@ -87,7 +87,8 @@ def load(request):
     if request.method == 'POST':
         product = productRunL(transformedProductData)
         opinionRunL(transformedOpinionData, product)
-        return render(request, 'load.html', {})
+        sizeOpinion = len(transformedOpinionData)
+        return render(request, 'load.html', {'sizeOpinion': sizeOpinion})
     else:
         return render(request, 'run-etl.html', {})
 
