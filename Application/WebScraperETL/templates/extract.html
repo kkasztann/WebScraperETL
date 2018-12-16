@@ -8,12 +8,12 @@
     <form action="transform" method="POST">
             {% csrf_token %}
             <a href="{% url 'run-t' %}">
-                <button class="btn btn-outline-secondary" type="submit">Run T</button>
+                <button class="btn button button-primary" type="submit">Run T</button>
             </a>
     </form>
 
     <div>
-        <h1>Extracted product html</h1>
+        <h2>Extracted product html</h2>
         <p>Dane statystyczne: {{ sizeProductParameters }} div</p>
         <textarea name="message" style="width:100%; height:200px;">
         {{ extractedProductData }}
@@ -21,7 +21,7 @@
     </div>
     
     <div>
-        <h1>Extracted opinions html</h1>
+        <h2>Extracted opinions html</h2>
         <p>Dane statystyczne: {{ sizeOpinion }} li</p>
         <textarea name="message" style="width:100%; height:200px;">
         {{ extractedOpinionData }}
