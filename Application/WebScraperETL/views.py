@@ -18,7 +18,6 @@ transformedOpinionData = []
 extractedProductData = ''
 transformedProductData = []
 
-
 def home(request):
     return render(request, 'home.html', {})
 
@@ -32,13 +31,13 @@ def runETL(request):
             productID = form.cleaned_data['productID']  # id from input
             print('ProductID: ', productID)
             try:
-                opinionRunETL(productID)
-                productRunETL(productID)
+                product = productRunETL(productID)
+                opinionRunETL(productID,product)
                 return render(request, 'load.html', {})
             except:
                 print("ProductID invalid")
                 messages.error(
-                    request, ('ProductID is not valid. Pleace type it correctly!'))
+                    request, ('ProductID is not valid or database already contain that product!'))
                 return render(request, 'run-etl.html', {})
     else:
         return render(request, 'run-etl.html', {})
@@ -84,8 +83,8 @@ def transform(request):
 
 def load(request):
     if request.method == 'POST':
-        opinionRunL(transformedOpinionData)
-        productRunL(transformedProductData)
+        product = productRunL(transformedProductData)
+        opinionRunL(transformedOpinionData, product)
         return render(request, 'load.html', {})
     else:
         return render(request, 'run-etl.html', {})

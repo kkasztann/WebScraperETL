@@ -163,3 +163,34 @@ footer a:hover {
 .csv:hover {
     color: orange;
 }
+
+
+/* ----- Home Section ----- */
+
+.home {
+    padding: 40px 0;
+    border: none;
+    text-align: center;
+    width: 30%;
+    margin: auto;
+  }
+
+  .home a {
+    background-color: #6AB04C; 
+    border: none;
+    border-radius: 8px;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .home a:hover{
+      background-color:lightskyblue;
+      text-decoration: none;
+      color:black;
+  }
