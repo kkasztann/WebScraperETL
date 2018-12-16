@@ -11,6 +11,19 @@ What things you need to install before you can statrt installing the software it
 ### Installation
 Installation is the next section in an effective README. Tell other users how to install your project locally. Optionally, include a gif to make the process even more clear for other people.
 
+1) Open Command Prompt 
+2) Type virtualenv *name of folder*
+3) Go to the folder "Scripts" and then type activate .
+4) type pip install django
+5) Go back to the main folder and type git init
+6) Type git remote add origin https://github.com/kkasztann/WebScraperETL.git
+7) Type git pull origin master
+
+Standard procedure to run server:
+1) ./Scripts/activate
+2) cd Application
+3) python manage.py runserver
+
 ### Configuration
 Explain how to configure the applcation and the possible options.
 
