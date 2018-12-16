@@ -7,9 +7,11 @@ import re
 #global product id variable
 productID = ''
 
-def productRunETL(productID):
+def productRunETL(prodID):
     print ("Starting ETL")
-    loadProduct(transformProduct(extractProduct(productID)))
+    global productID
+    productID = prodID
+    return loadProduct(transformProduct(extractProduct(productID)))
 
 #return string with pure extracted opinions html
 def productRunE(prodID):
@@ -23,7 +25,7 @@ def productRunT(extractedData):
 
 #inject data into the database
 def productRunL(transformedData):
-    loadProduct(transformedData)   
+    return loadProduct(transformedData)   
 
 
 #---------------------CORE---------------------
@@ -60,3 +62,4 @@ def loadProduct(productParameters):
         print(parameter[0], parameter[1], parameter[2], parameter[3], 'loaded')
         pd = ProductDetail(parameter=parameter[2], value=parameter[3], product=p)
         pd.save()
+    return p
