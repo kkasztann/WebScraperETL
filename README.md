@@ -1,12 +1,20 @@
 # WebScraperETL
 Project description: A good description is clear, short, and to the point. Describe the importance of your project, and what it does.
 
+In our project we created an app, which allows people to download opinions and info about products, which was searched in Ceneo.pl and export them to the *.csv files. It is possible to run ETL process as well.
 ## (Table of Contents)
 Optionally, include a table of contents in order to allow other people to quickly navigate especially long or detailed READMEs.
 
 ## Getting Started
 ### Prerequisites
 What things you need to install before you can statrt installing the software itself.
+
+In order to start working with the project you need technology for scrapping, such as:
+* Python (Django framework)
+    a) Beautiful Soup
+    b) pandas or csv (writer)
+* Database added with django - sqlite3
+* Bootstrap
 
 ### Installation
 Installation is the next section in an effective README. Tell other users how to install your project locally. Optionally, include a gif to make the process even more clear for other people.
