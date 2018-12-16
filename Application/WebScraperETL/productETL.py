@@ -23,7 +23,7 @@ def productRunT(extractedData):
 
 #inject data into the database
 def productRunL(transformedData):
-    loadProduct(transformedData)   
+    return loadProduct(transformedData)   
 
 
 #---------------------CORE---------------------
@@ -60,3 +60,4 @@ def loadProduct(productParameters):
         print(parameter[0], parameter[1], parameter[2], parameter[3], 'loaded')
         pd = ProductDetail(parameter=parameter[2], value=parameter[3], product=p)
         pd.save()
+    return p

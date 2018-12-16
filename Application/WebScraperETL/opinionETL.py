@@ -21,8 +21,8 @@ def opinionRunT(extractedData):
     return transformOpinions(extractedData) 
 
 #inject data into the database
-def opinionRunL(transformedData):
-    loadOpinions(transformedData)   
+def opinionRunL(transformedData, product):
+    loadOpinions(transformedData, product)   
 
 
 #---------------------CORE---------------------
@@ -70,9 +70,10 @@ def transformOpinions(scrapedHTML):
         opinions.append((productID, username, productRating, productReview))
     return opinions
 
-def loadOpinions(opinions):
+def loadOpinions(opinions, prod):
     print('Loading data')
+
     for opinion in opinions:  
         print(opinion[0], ' loaded')
-        o = Opinion(productID=opinion[0], username=opinion[1], productRating=opinion[2], productReview=opinion[3])
+        o = Opinion(productID=opinion[0], username=opinion[1], productRating=opinion[2], productReview=opinion[3], product=prod)
         o.save()

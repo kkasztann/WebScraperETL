@@ -14,7 +14,7 @@ extractedOpinionData = ''
 transformedOpinionData = []
 extractedProductData = ''
 transformedProductData = []
-
+product = []
 
 def home(request):
     return render(request, 'home.html', {})
@@ -81,8 +81,8 @@ def transform(request):
 
 def load(request):
     if request.method == 'POST':
-        opinionRunL(transformedOpinionData)
-        productRunL(transformedProductData)
+        product = productRunL(transformedProductData)
+        opinionRunL(transformedOpinionData, product)
         return render(request, 'load.html', {})
     else:
         return render(request, 'run-etl.html', {})
