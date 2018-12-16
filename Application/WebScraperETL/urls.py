@@ -16,4 +16,5 @@ urlpatterns = [
     path('csv-products>', views.productsCSV, name='csv-products'),
     path('opinions/<product_id>', views.opinions, name='opinions'),
     path('csv-opinions', views.opinionsCSV, name='csv-opinions'),
+    path('csv-opinions/<opinion_id>', views.opinionCSV, name='csv-opinion'),
 ]

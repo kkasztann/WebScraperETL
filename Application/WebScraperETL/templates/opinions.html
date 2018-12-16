@@ -21,7 +21,7 @@
                 <td>{{ opinion.username }}</td>
                 <td>{{ opinion.productRating }}</td>
                 <td>{{ opinion.productReview }}</td>
-                {% comment %} <td><a href="{% url 'csv-opinion' opinion.id %}"><i class="fas fa-file-csv csv-i"></i></a></td> {% endcomment %}
+                <td><a href="{% url 'csv-opinion' opinion.id %}"><i class="fas fa-file-csv csv-i"></i></a></td>
             </tr>
             {% endfor %}
         </tbody>

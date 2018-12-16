@@ -158,3 +158,16 @@ def opinionsCSV(request):
     for o in allOpinions:
             writer.writerow([o.productID,"'"+o.username+"'","'"+o.productRating+"'","'"+o.productReview+"'"])
     return response
+
+
+def opinionCSV(request, opinion_id):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="opinion.csv"'
+
+    opinion = Opinion.objects.get(pk=opinion_id)
+
+    writer = csv.writer(response)
+    writer.writerow(['ID', 'NAME', 'PARAMETER', 'VALUE'])
+    writer.writerow([opinion.productID,"'"+opinion.username+"'","'"+opinion.productRating+"'","'"+opinion.productReview+"'"])
+
+    return response
