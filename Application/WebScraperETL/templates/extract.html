@@ -4,26 +4,29 @@
 
 {% block content %}
 <div class="extract">
+    <h1>Data successfully extracted</h1>
+    <form action="transform" method="POST">
+            {% csrf_token %}
+            <a href="{% url 'run-t' %}">
+                <button class="btn btn-outline-secondary" type="submit">Run T</button>
+            </a>
+    </form>
+
     <div>
         <h1>Extracted product html</h1>
+        <p>Dane statystyczne: {{ sizeProductParameters }} div</p>
         <textarea name="message" style="width:100%; height:200px;">
         {{ extractedProductData }}
     </textarea>
-        <p>Dane statystyczne: {{ sizeProductParameters }} div</p>
     </div>
+    
     <div>
         <h1>Extracted opinions html</h1>
+        <p>Dane statystyczne: {{ sizeOpinion }} li</p>
         <textarea name="message" style="width:100%; height:200px;">
         {{ extractedOpinionData }}
     </textarea>
-        <p>Dane statystyczne: {{ sizeOpinion }} li</p>
     </div>
-    <form action="transform" method="POST">
-        {% csrf_token %}
-        <a href="{% url 'run-t' %}">
-            <button class="btn btn-outline-secondary" type="submit">Run T</button>
-        </a>
-    </form>
 
 
 </div>

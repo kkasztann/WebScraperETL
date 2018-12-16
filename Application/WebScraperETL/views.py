@@ -74,7 +74,9 @@ def transform(request):
         global transformedOpinionData, transformedProductData
         transformedOpinionData = opinionRunT(extractedOpinionData)
         transformedProductData = productRunT(extractedProductData)
-        return render(request, 'transform.html', {'transformedOpinionData': transformedOpinionData, 'transformedProductData': transformedProductData})
+        sizeProductParameters = len(transformedProductData)
+        sizeOpinion = len(transformedOpinionData)
+        return render(request, 'transform.html', {'sizeProductParameters': sizeProductParameters, 'sizeOpinion': sizeOpinion,'transformedOpinionData': transformedOpinionData, 'transformedProductData': transformedProductData})
     else:
         return render(request, 'run-etl.html', {})
 
