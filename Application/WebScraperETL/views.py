@@ -74,7 +74,9 @@ def transform(request):
         global transformedOpinionData, transformedProductData
         transformedOpinionData = opinionRunT(extractedOpinionData)
         transformedProductData = productRunT(extractedProductData)
-        return render(request, 'transform.html', {'transformedOpinionData': transformedOpinionData, 'transformedProductData': transformedProductData})
+        sizeProductParameters = len(transformedProductData)
+        sizeOpinion = len(transformedOpinionData)
+        return render(request, 'transform.html', {'sizeProductParameters': sizeProductParameters, 'sizeOpinion': sizeOpinion,'transformedOpinionData': transformedOpinionData, 'transformedProductData': transformedProductData})
     else:
         return render(request, 'run-etl.html', {})
 
@@ -85,7 +87,8 @@ def load(request):
     if request.method == 'POST':
         product = productRunL(transformedProductData)
         opinionRunL(transformedOpinionData, product)
-        return render(request, 'load.html', {})
+        sizeOpinion = len(transformedOpinionData)
+        return render(request, 'load.html', {'sizeOpinion': sizeOpinion})
     else:
         return render(request, 'run-etl.html', {})
 
@@ -141,6 +144,7 @@ def productsCSV(request):
 
     return response
 
+<<<<<<< HEAD
 
 def opinions(request, product_id):
     allOpinions = Opinion.objects.filter(product__pk=product_id)
@@ -171,3 +175,13 @@ def opinionCSV(request, opinion_id):
     writer.writerow([opinion.productID,"'"+opinion.username+"'","'"+opinion.productRating+"'","'"+opinion.productReview+"'"])
 
     return response
+=======
+def sortNameAscending(request):
+    allProducts = Product.objects.order_by('productName')
+    return render(request, 'products.html', {'allProducts': allProducts})    
+
+
+def sortNameDescending(request):
+    allProducts = Product.objects.order_by('-productName')
+    return render(request, 'products.html', {'allProducts': allProducts})  
+>>>>>>> d944c1597ad245e354d4181af610fc93f0911400
