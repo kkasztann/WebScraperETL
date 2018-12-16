@@ -7,9 +7,11 @@ import re
 #global product id variable
 productID = ''
 
-def productRunETL(productID):
+def productRunETL(prodID):
     print ("Starting ETL")
-    loadProduct(transformProduct(extractProduct(productID)))
+    global productID
+    productID = prodID
+    return loadProduct(transformProduct(extractProduct(productID)))
 
 #return string with pure extracted opinions html
 def productRunE(prodID):

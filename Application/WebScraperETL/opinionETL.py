@@ -6,9 +6,9 @@ import re
 #global product id variable
 productID = ''
 
-def opinionRunETL(productID):
+def opinionRunETL(prodID, product):
     print ("Starting ETL")
-    loadOpinions(transformOpinions(extractOpinions(generateOpinionLinkList(productID))))
+    loadOpinions(transformOpinions(extractOpinions(generateOpinionLinkList(productID))), product)
 
 #return string with pure extracted opinions html
 def opinionRunE(prodID):
