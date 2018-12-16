@@ -144,8 +144,6 @@ def productsCSV(request):
 
     return response
 
-<<<<<<< HEAD
-
 def opinions(request, product_id):
     allOpinions = Opinion.objects.filter(product__pk=product_id)
     return render(request, 'opinions.html', {'allOpinions': allOpinions})
@@ -175,13 +173,13 @@ def opinionCSV(request, opinion_id):
     writer.writerow([opinion.productID,"'"+opinion.username+"'","'"+opinion.productRating+"'","'"+opinion.productReview+"'"])
 
     return response
-=======
+
 def sortNameAscending(request):
     allProducts = Product.objects.order_by('productName')
-    return render(request, 'products.html', {'allProducts': allProducts})    
+    return render(request, 'products.html', {'allProducts': allProducts})
 
 
 def sortNameDescending(request):
     allProducts = Product.objects.order_by('-productName')
-    return render(request, 'products.html', {'allProducts': allProducts})  
->>>>>>> d944c1597ad245e354d4181af610fc93f0911400
+    return render(request, 'products.html', {'allProducts': allProducts})
+
