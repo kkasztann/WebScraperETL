@@ -10,19 +10,20 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
+                    <th scope="col"><a class="csv" href="{% url 'csv-opinions' %}">CSV</a></th>
                     <th scope="col">USER</th>
                     <th scope="col">RATING</th>
-                    <th scope="col">PRODUCT REVIEW</th>
-                    <th scope="col"><a class="csv" href="{% url 'csv-opinions' %}">CSV</a></th>
+                    <th scope="col" class="td-justify">PRODUCT REVIEW</th>
                 </tr>
             </thead>
             <tbody>
                 {% for opinion in allOpinions %}
                 <tr>
+                    <td><a href="{% url 'csv-opinion' opinion.id %}"><i class="fas fa-file-csv csv-i"></i></a></td>
                     <td>{{ opinion.username }}</td>
                     <td>{{ opinion.productRating }}</td>
-                    <td>{{ opinion.productReview }}</td>
-                    <td><a href="{% url 'csv-opinion' opinion.id %}"><i class="fas fa-file-csv csv-i"></i></a></td>
+                    <td class="td-justify">{{ opinion.productReview }}</td>
+
                 </tr>
                 {% endfor %}
             </tbody>
