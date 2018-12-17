@@ -4,10 +4,10 @@ In our project we created an app, which allows people to download opinions and i
 
 ### Tech Stack
 * Python
-* Django
+  * Django
 * HTML5
 * CSS3
-* Bootstrap4
+  * Bootstrap4
 * JS ES6
 
 ## Getting Started
