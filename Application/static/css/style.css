@@ -40,6 +40,10 @@ tr {
     text-align: center;
 }
 
+.td-left{
+    text-align: left;
+}
+
 a {
     color: #BADC58;
 }
@@ -314,11 +318,6 @@ footer a:hover {
 
 .home button:hover{
     background-color: lightskyblue;
-}
-
-/* ----- Opinion Section ----- */
-.td-justify {
-    text-align: left;
 }
 
 .opinionsSection h1 {

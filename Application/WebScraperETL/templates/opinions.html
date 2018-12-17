@@ -13,7 +13,7 @@
                     <th scope="col"><a class="csv" href="{% url 'csv-opinions' %}">CSV</a></th>
                     <th scope="col">UŻYTKOWNIK</th>
                     <th scope="col">OCENA</th>
-                    <th scope="col" class="td-justify">OPINIA</th>
+                    <th scope="col" class="td-left">OPINIA</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,7 +22,7 @@
                     <td><a href="{% url 'csv-opinion' opinion.id %}"><i class="fas fa-file-csv csv-i"></i></a></td>
                     <td>{{ opinion.username }}</td>
                     <td>{{ opinion.productRating }}</td>
-                    <td class="td-justify">{{ opinion.productReview }}</td>
+                    <td class="td-left">{{ opinion.productReview }}</td>
 
                 </tr>
                 {% endfor %}
