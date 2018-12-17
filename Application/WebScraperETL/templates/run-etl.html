@@ -1,6 +1,6 @@
 {% extends 'base.html'%}
 
-{% block title %}WebScraperETL | Page2 {% endblock%}
+{% block title %}WebScraperETL | Run ETL {% endblock%}
 
 {% block content %}
 <div class="runETL">
@@ -19,7 +19,7 @@
             <form class="form-inline" method="POST">
                 {% csrf_token %}
                 <input class="form-control mr-sm-2" type="text" placeholder="Type product ID" name="productID">
-                <button class="button button-primary " type="submit">Run ETL</button>
+                <button class="button button-primary" id="button0" onClick="buttonOff()" type="submit">Run ETL</button>
             </form>
 
             <br>
@@ -28,7 +28,7 @@
                 {% csrf_token %}
                 <input class="form-control mr-sm-2" type="text" placeholder="Type product ID" name="productID">
                 <a href="{% url 'run-e' %}">
-                    <button class="button button-primary" type="submit">Run E</button>
+                    <button class="button button-primary" type="submit" id="button1" onClick="buttonOff()">Run E</button>
                 </a>
             </form>
         </div>

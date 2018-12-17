@@ -1,14 +1,14 @@
 {% extends 'base.html'%}
 
-{% block title %}WebScraperETL | Opinions {% endblock%}
+{% block title %}WebScraperETL | Transform {% endblock%}
 
 {% block content %}
 <div class="transform">
-    <h1>Data successfully transformed</h1>
+    <h1>Dane pomyślnie przetworzone!</h1>
     <form action="load" method="POST">
             {% csrf_token %}
             <a href="{% url 'run-l' %}">
-                <button class="btn button button-primary" type="submit">Run L</button>
+                <button class="btn button button-primary" id="button0" onClick="buttonOff()" type="submit">Run L</button>
             </a>
     </form>
 

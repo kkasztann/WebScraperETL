@@ -317,11 +317,16 @@ footer a:hover {
 }
 
 /* ----- Opinion Section ----- */
+.td-justify {
+    text-align: left;
+}
+
 .opinionsSection h1 {
     padding-top: 20px;
 }
 
-/* ----- Opinion Section ----- */
+
+/* ----- Product Details Section ----- */
 .productDetails h1 {
     padding-top: 20px;
 }
