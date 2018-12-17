@@ -1,5 +1,6 @@
 # WebScraperETL
-Project description:
+![HowItWork](https://github.com/kkasztann/WebScraperETL/blob/master/Documentation/howItWork.gif)
+### Project description:
 In our project we created an app, which allows people to download opinions and info about products, which was searched in Ceneo.pl and export them to the *.csv files. It is possible to run ETL process as well.
 
 ### Tech Stack
@@ -31,7 +32,7 @@ In order to start working with the project you need technology for scrapping, su
 #### Database:
 1. python manage.py makemigrations
 2. python manage.py migrate
-Create Admin:
+#### Create Admin:
 python manage.py createsuperuser
 
 
