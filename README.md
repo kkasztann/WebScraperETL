@@ -16,11 +16,11 @@ In order to start working with the project you need technology for scrapping, su
 6. pip install beautifulsoup4
 
 ## Usage
-Standard procedure to run server:
+#### Standard procedure to run server:
 1. . Scripts/activate
 2. cd ../Application
 3. python manage.py runserver
-Database:
+#### Database:
 1. python manage.py makemigrations
 2. python manage.py migrate
 Create Admin:
