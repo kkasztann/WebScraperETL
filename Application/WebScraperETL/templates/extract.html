@@ -1,10 +1,10 @@
 {% extends 'base.html'%}
 
-{% block title %}WebScraperETL | Opinions {% endblock%}
+{% block title %}WebScraperETL | Extract {% endblock%}
 
 {% block content %}
 <div class="extract">
-    <h1>Data successfully extracted</h1>
+    <h1>Dane pomyślnie pozyskane!</h1>
     <form action="transform" method="POST">
             {% csrf_token %}
             <a href="{% url 'run-t' %}">

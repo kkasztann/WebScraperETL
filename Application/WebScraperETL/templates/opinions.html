@@ -4,16 +4,16 @@
 
 {% block content %}
 <div class="opinionsSection">
-    <h1>Opinions</h1>
+    <h1>Opinie:</h1>
     {% if allOpinions %}
         <div class="table-responsive">
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th scope="col"><a class="csv" href="{% url 'csv-opinions' %}">CSV</a></th>
-                    <th scope="col">USER</th>
-                    <th scope="col">RATING</th>
-                    <th scope="col" class="td-justify">PRODUCT REVIEW</th>
+                    <th scope="col">UŻYTKOWNIK</th>
+                    <th scope="col">OCENA</th>
+                    <th scope="col" class="td-justify">OPINIA</th>
                 </tr>
             </thead>
             <tbody>
