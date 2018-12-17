@@ -2,6 +2,14 @@
 Project description:
 In our project we created an app, which allows people to download opinions and info about products, which was searched in Ceneo.pl and export them to the *.csv files. It is possible to run ETL process as well.
 
+### Tech Stack
+* Python
+* Django
+* HTML5
+* CSS3
+* Bootstrap4
+* JS ES6
+
 ## Getting Started
 ### Prerequisites
 In order to start working with the project you need technology for scrapping, such as:
@@ -25,6 +33,8 @@ In order to start working with the project you need technology for scrapping, su
 2. python manage.py migrate
 Create Admin:
 python manage.py createsuperuser
+
+
 
 
 
