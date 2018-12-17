@@ -294,23 +294,26 @@ footer a:hover {
 }
 
 .home a {
-    background-color: #6AB04C;
+    background-color: none;
     border: none;
-    border-radius: 8px;
-    color: black;
-    padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 24px;
     margin: 4px 2px;
-    cursor: pointer;
 }
 
-.home a:hover {
-    background-color: lightskyblue;
+.home button {
+    background-color: #6AB04C;
     text-decoration: none;
     color: black;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 15px 32px;
+}
+
+.home button:hover{
+    background-color: lightskyblue;
 }
 
 /* ----- Opinion Section ----- */
