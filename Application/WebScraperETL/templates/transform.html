@@ -8,7 +8,7 @@
     <form action="load" method="POST">
             {% csrf_token %}
             <a href="{% url 'run-l' %}">
-                <button class="btn button button-primary" type="submit">Run L</button>
+                <button class="btn button button-primary" id="button0" onClick="buttonOff()" type="submit">Run L</button>
             </a>
     </form>
 
